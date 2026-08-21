@@ -36,8 +36,8 @@ public class Customer {
     Restaurant restaurant_ = new Restaurant(0,null,null,0,null,null,null,0.0);
 
     private static final String url = "jdbc:postgresql://localhost:5432/Bitezy";
-    private static final String user = "postgres";
-    private static final String password_ = "System.out.print";
+    private static final String user = "username";
+    private static final String password_ = "your password";
 
     public static Connection getConnection() throws Exception {
         return DriverManager.getConnection(url, user, password_);
