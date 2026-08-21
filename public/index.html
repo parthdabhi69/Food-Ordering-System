@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get Location</title>
+</head>
+<body>
+  <h1>Accurate Location Detection</h1>
+  <button onclick="getLocation()">Get My Location</button>
+  <p id="status"></p>
+  <p id="location"></p>
+
+  <script>
+    function getLocation() {
+      const status = document.getElementById("status");
+      const locationDisplay = document.getElementById("location");
+
+      if (!navigator.geolocation) {
+        status.textContent = "Geolocation is not supported by your browser.";
+        return;
+      }
+
+      status.textContent = "Getting your location...";
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+          status.textContent = "Location fetched successfully:";
+          locationDisplay.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+        },
+        (error) => {
+          status.textContent = "Unable to retrieve your location. Please allow permission.";
+        }
+      );
+    }
+  </script>
+</body>
+</html>
